@@ -16,7 +16,7 @@ abstract class OpenFolderAction extends AnAction {
     public void actionPerformed(@NotNull AnActionEvent e) {
         final Project project = e.getData(PlatformDataKeys.PROJECT);
         String projectPath = project.getBasePath();
-        String folderPath = projectPath + "/" + getModulePath() + "/" + getFolderPath();
+        String folderPath = projectPath + "/" + getModulePath() + "/build/" + getFolderPath();
         File folder = new File(folderPath);
 
         if (!folder.exists()) {
