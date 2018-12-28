@@ -15,12 +15,12 @@
     <actions>
         <group id="afo" text="Android Folder Opener" description="Android Folder Opener" popup="true">
 
-            <action id="com.illuzor.afo.actions.OpenFolder"
+            <action id="com.illuzor.afo.actions.OpenReportsAction"
                     class="com.illuzor.afo.actions.OpenReportsAction"
-                    text="Open Folder">
+                    text="Open Reports Folder">
             </action>
 
-            <add-to-group group-id="AndroidToolsGroup" anchor="first"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
         </group>
     </actions>
 </idea-plugin>
