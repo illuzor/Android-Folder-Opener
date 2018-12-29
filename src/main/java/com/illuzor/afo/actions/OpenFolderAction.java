@@ -24,26 +24,26 @@ abstract class OpenFolderAction extends AnAction {
         final String modulePath = getModulePath();
 
         if (!new File(projectPath + "/" + getModulePath()).exists()) {
-            showNotification("Module does not exists", modulePath, NotificationType.ERROR);
+            showNotification("Module does not exists", modulePath);
         }
 
         final String folderPath = projectPath + "/" + modulePath + "/build/" + getFolderPath();
         final File folder = new File(folderPath);
 
         if (!folder.exists()) {
-            showNotification("Folder does not exists", folderPath, NotificationType.WARNING);
+            showNotification("Folder does not exists", folderPath);
             return;
         }
         try {
             Desktop.getDesktop().open(new File(folderPath));
         } catch (IOException ex) {
             ex.printStackTrace();
-            showNotification("Unable to open folder", folderPath + "\n" + ex.getMessage(), NotificationType.ERROR);
+            showNotification("Unable to open folder", folderPath + "\n" + ex.getMessage());
         }
     }
 
-    private void showNotification(String title, String message, NotificationType type) {
-        Notifications.Bus.notify(new Notification(GROUP_DISPLAY_ID, title, message, type));
+    private void showNotification(String title, String message) {
+        Notifications.Bus.notify(new Notification(GROUP_DISPLAY_ID, title, message, NotificationType.INFORMATION));
     }
 
     @NotNull
