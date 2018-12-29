@@ -15,9 +15,49 @@
     <actions>
         <group id="afo" text="Android Folder Opener" description="Android Folder Opener" popup="true">
 
+            <action id="com.illuzor.afo.actions.OpenApkAction"
+                    class="com.illuzor.afo.actions.OpenApkAction"
+                    text="Open APK Folder">
+            </action>
+
+            <action id="com.illuzor.afo.actions.OpenApkReleaseAction"
+                    class="com.illuzor.afo.actions.OpenApkReleaseAction"
+                    text="Open APK Release Folder">
+            </action>
+
+            <action id="com.illuzor.afo.actions.OpenApkDebugAction"
+                    class="com.illuzor.afo.actions.OpenApkDebugAction"
+                    text="Open APK Debug Folder">
+            </action>
+
+            <action id="com.illuzor.afo.actions.OpenBundleAction"
+                    class="com.illuzor.afo.actions.OpenBundleAction"
+                    text="Open Bundle Folder">
+            </action>
+
+            <action id="com.illuzor.afo.actions.OpenBundleReleaseAction"
+                    class="com.illuzor.afo.actions.OpenBundleReleaseAction"
+                    text="Open Bundle Release Folder">
+            </action>
+
+            <action id="com.illuzor.afo.actions.OpenBundleDebugAction"
+                    class="com.illuzor.afo.actions.OpenBundleDebugAction"
+                    text="Open Bundle Debug Folder">
+            </action>
+
             <action id="com.illuzor.afo.actions.OpenReportsAction"
                     class="com.illuzor.afo.actions.OpenReportsAction"
                     text="Open Reports Folder">
+            </action>
+
+            <action id="com.illuzor.afo.actions.OpenMappingAction"
+                    class="com.illuzor.afo.actions.OpenMappingAction"
+                    text="Open Mapping Folder">
+            </action>
+
+            <action id="com.illuzor.afo.actions.OpenTestResultsAction"
+                    class="com.illuzor.afo.actions.OpenTestResultsAction"
+                    text="Open Test Results Folder">
             </action>
 
             <add-to-group group-id="ToolsMenu" anchor="first"/>

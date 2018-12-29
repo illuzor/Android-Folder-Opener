@@ -2,10 +2,10 @@ package com.illuzor.afo.actions;
 
 import org.jetbrains.annotations.NotNull;
 
-public class OpenReportsAction extends OpenFolderAction {
+public class OpenApkAction extends OpenFolderAction {
     @NotNull
     @Override
     String getFolderPath() {
-        return "reports";
+        return "outputs/apk";
     }
 }
