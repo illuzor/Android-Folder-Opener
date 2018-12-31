@@ -60,6 +60,16 @@
                     text="Open Test Results Folder">
             </action>
 
+            <action id="com.illuzor.afo.actions.MainModuleSelectAction"
+                    class="com.illuzor.afo.actions.MainModuleSelectAction"
+                    text="Select Main Module">
+            </action>
+
+            <action id="com.illuzor.afo.actions.MainModuleEnterAction"
+                    class="com.illuzor.afo.actions.MainModuleEnterAction"
+                    text="Enter Main Module Name">
+            </action>
+
             <add-to-group group-id="ToolsMenu" anchor="first"/>
         </group>
     </actions>
