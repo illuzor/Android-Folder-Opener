@@ -1,5 +1,6 @@
 package com.illuzor.afo.actions;
 
+import com.illuzor.afo.constants.Id;
 import com.illuzor.afo.ui.ChooserDialogWrapper;
 import com.illuzor.afo.utils.ModulesUtil;
 import com.intellij.ide.util.PropertiesComponent;
@@ -23,7 +24,7 @@ public class MainModuleSelectAction extends AnAction {
                 Messages.showErrorDialog("No modules found", "Error");
             } else {
                 ChooserDialogWrapper dialog = new ChooserDialogWrapper(project, modulesList);
-                dialog.onOkClickedListener(moduleName -> PropertiesComponent.getInstance(project).setValue("mainModule", moduleName));
+                dialog.onOkClickedListener(moduleName -> PropertiesComponent.getInstance(project).setValue(Id.MAIN_MODULE_KEY, moduleName));
                 dialog.show();
             }
         } catch (IOException e1) {

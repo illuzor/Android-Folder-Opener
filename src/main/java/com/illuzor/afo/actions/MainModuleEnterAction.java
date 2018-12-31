@@ -1,5 +1,6 @@
 package com.illuzor.afo.actions;
 
+import com.illuzor.afo.constants.Id;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -29,6 +30,6 @@ public class MainModuleEnterAction extends AnAction {
             Messages.showErrorDialog("Module '" + moduleName + "' Does Not Exists", "Error");
             return;
         }
-        PropertiesComponent.getInstance(project).setValue("mainModule", moduleName);
+        PropertiesComponent.getInstance(project).setValue(Id.MAIN_MODULE_KEY, moduleName);
     }
 }

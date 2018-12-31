@@ -1,5 +1,7 @@
 package com.illuzor.afo.actions;
 
+import com.illuzor.afo.constants.Id;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
@@ -19,16 +21,17 @@ abstract class OpenFolderAction extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        final Project project = e.getData(PlatformDataKeys.PROJECT);
-        final String projectPath = project.getBasePath();
-        final String modulePath = getModulePath();
+        Project project = e.getData(PlatformDataKeys.PROJECT);
+        String projectPath = project.getBasePath();
+        String modulePath = getModulePath(PropertiesComponent.getInstance(project));
 
-        if (!new File(projectPath + "/" + getModulePath()).exists()) {
+        if (!new File(projectPath + "/" + modulePath).exists()) {
             showNotification("Module does not exists", modulePath);
+            return;
         }
 
-        final String folderPath = projectPath + "/" + modulePath + "/build/" + getFolderPath();
-        final File folder = new File(folderPath);
+        String folderPath = projectPath + "/" + modulePath + "/build/" + getFolderPath();
+        File folder = new File(folderPath);
 
         if (!folder.exists()) {
             showNotification("Folder does not exists", folderPath);
@@ -47,8 +50,8 @@ abstract class OpenFolderAction extends AnAction {
     }
 
     @NotNull
-    private String getModulePath() {
-        return "app";
+    private String getModulePath(PropertiesComponent pc) {
+        return pc.getValue(Id.MAIN_MODULE_KEY, "app");
     }
 
     @NotNull
