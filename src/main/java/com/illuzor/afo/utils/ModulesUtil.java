@@ -28,7 +28,7 @@ public class ModulesUtil {
         return modules;
     }
 
-    public static List<String> getModulesList() throws IOException {
-        return getModulesFromString(readFileToString(new File("settings.gradle")));
+    public static List<String> getModulesList(String basePath) throws IOException {
+        return getModulesFromString(readFileToString(new File(basePath + "/" + "settings.gradle")));
     }
 }
