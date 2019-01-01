@@ -26,7 +26,3 @@ intellij {
     version '2018.3.2'
     updateSinceUntilBuild false
 }
-
-patchPluginXml {
-    changeNotes """First Release"""
-}

@@ -4,9 +4,24 @@
     <vendor email="illuzor@gmail.com" url="https://illuzor.pro">Artem Zanin</vendor>
 
     <description><![CDATA[
-    Plugin for open android folders in explorer/finder
-    ]]></description>
+       Quick action for open project folders:<br />
+        <ul>
+            <li>APK</li>
+            <li>APK Release</li>
+            <li>APK Debug</li>
+            <li>Bundle</li>
+            <li>Bundle Release</li>
+            <li>Bundle Debug</li>
+            <li>Mapping</li>
+            <li>Reports</li>
+            <li>Test Results</li>
+        </ul>
+        <br />
+        Available from "Tools/Android Folder Opener" and from search via Ctrl+Shift+A
+        ]]></description>
 
+    <depends>com.intellij.modules.platform</depends>
+    <!--suppress PluginXmlValidity -->
     <depends>org.jetbrains.android</depends>
 
     <!-- Android Studio 3.2+ -->
