@@ -23,7 +23,7 @@ public class ModulesUtilTest {
     }
 
     @Test
-    public void readFileToString_noFile_test() throws IOException {
+    public void readFileToString_noFile_test() {
         Assertions.assertThrows(IOException.class, () -> ModulesUtil.readFileToString(new File("test1.file")));
     }
 
