@@ -21,7 +21,7 @@ public class MainModuleEnterAction extends AnAction {
                 "Main Module Name:",
                 Messages.getQuestionIcon());
 
-        if (moduleName == null) {
+        if (moduleName == null || moduleName.isEmpty()) {
             return;
         }
 
