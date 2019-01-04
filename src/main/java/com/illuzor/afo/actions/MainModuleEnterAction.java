@@ -25,7 +25,7 @@ public class MainModuleEnterAction extends AnAction {
             return;
         }
 
-        String path = project.getBasePath() + "/" + moduleName + "/" + "build.gradle";
+        String path = project.getBasePath() + "/" + moduleName + "/build.gradle";
         if (!new File(path).exists()) {
             Messages.showErrorDialog("Module '" + moduleName + "' Does Not Exists", "Error");
             return;
