@@ -34,7 +34,7 @@ abstract class OpenFolderAction extends AnAction {
             return;
         }
         try {
-            Desktop.getDesktop().open(new File(folderPath));
+            Desktop.getDesktop().open(folder);
         } catch (IOException ex) {
             ex.printStackTrace();
             showError("Unable to open folder '" + folderPath + "'\n" + ex.getMessage());
