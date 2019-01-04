@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.illuzor.afo</id>
     <name>Android Folder Opener</name>
-    <vendor email="illuzor@gmail.com" url="https://illuzor.pro">Artem Zanin</vendor>
+    <vendor email="illuzor@gmail.com" url="https://github.com/illuzor/Android-Folder-Opener">Artem Zanin</vendor>
 
     <description><![CDATA[
        Quick action for open project folders:<br />
