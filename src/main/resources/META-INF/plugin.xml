@@ -17,7 +17,7 @@
             <li>Test Results</li>
         </ul>
         <br />
-        Available from "Tools/Android Folder Opener" and from search via Ctrl+Shift+A
+        Available from "Tools/Android Folder Opener" and from search via Ctrl+Shift+A / ⇧⌘A
         ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
