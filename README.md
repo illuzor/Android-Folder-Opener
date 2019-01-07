@@ -1,5 +1,7 @@
 # Android Folder Opener
 
+[![Build Status](https://travis-ci.org/illuzor/Android-Folder-Opener.svg?branch=master)](https://travis-ci.org/illuzor/Android-Folder-Opener)
+
 Android Studio plugin with quick actions for open project folders:
 
 * APK
