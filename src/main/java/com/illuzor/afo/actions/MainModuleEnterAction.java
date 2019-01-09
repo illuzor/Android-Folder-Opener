@@ -26,7 +26,8 @@ public class MainModuleEnterAction extends AnAction {
         }
 
         String path = project.getBasePath() + "/" + moduleName + "/build.gradle";
-        if (!new File(path).exists()) {
+        String ktsPath = path + ".kts";
+        if (!new File(path).exists() && !new File(ktsPath).exists()) {
             Messages.showErrorDialog("Module '" + moduleName + "' Does Not Exists", "Error");
             return;
         }

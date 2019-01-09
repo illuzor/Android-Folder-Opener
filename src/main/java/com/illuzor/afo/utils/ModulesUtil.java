@@ -19,7 +19,7 @@ public class ModulesUtil {
 
     static List<String> getModulesFromString(String string) {
         List<String> modules = new ArrayList<>();
-        Matcher matcher = Pattern.compile("':(.+?)'").matcher(string);
+        Matcher matcher = Pattern.compile("['\"]:(.+?)['\"]").matcher(string);
 
         while (matcher.find()) {
             modules.add(matcher.group(1));
@@ -29,6 +29,11 @@ public class ModulesUtil {
     }
 
     public static List<String> getModulesList(String basePath) throws IOException {
-        return getModulesFromString(readFileToString(new File(basePath + "/settings.gradle")));
+        String path = basePath + "/settings.gradle";
+        File file = new File(path);
+        if (!file.exists()) {
+            file = new File(path + ".kts");
+        }
+        return getModulesFromString(readFileToString(file));
     }
 }
