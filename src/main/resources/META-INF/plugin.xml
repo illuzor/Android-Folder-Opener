@@ -20,6 +20,14 @@
         Available from "Tools/Android Folder Opener" and from search via Ctrl+Shift+A / ⇧⌘A
         ]]></description>
 
+    <change-notes><![CDATA[
+        <b>1.0.1</b>
+        <ul>
+            <li>BUGFIX: gradle kotlin dsl support</li>
+        </ul>
+        ]]>
+    </change-notes>
+
     <depends>com.intellij.modules.platform</depends>
     <!--suppress PluginXmlValidity -->
     <depends>org.jetbrains.android</depends>
