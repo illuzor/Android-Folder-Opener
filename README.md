@@ -13,6 +13,7 @@ Android Studio plugin with quick actions for open project folders:
 * Mapping
 * Reports
 * Test Results
+* Logs
 
 ## How to use
 
@@ -28,4 +29,4 @@ Android Studio plugin with quick actions for open project folders:
 
 Default module name is **app**. You can change it via following commands:
 * Select Main Module
-* Enter Main Module
+* Enter Main Module Name
