@@ -22,7 +22,7 @@ public class ModulesUtil {
         Matcher matcher = Pattern.compile("['\"]:(.+?)['\"]").matcher(string);
 
         while (matcher.find()) {
-            modules.add(matcher.group(1));
+            modules.add(matcher.group(1).replaceAll(":", "/"));
         }
 
         return modules;

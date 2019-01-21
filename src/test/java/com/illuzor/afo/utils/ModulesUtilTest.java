@@ -29,12 +29,14 @@ public class ModulesUtilTest {
 
     @Test
     public void getModulesFromString_test() {
-        String modulesString = "include ':app' ':storage' ':net'";
+        String modulesString = "include ':app' ':storage' ':net' ':modules:module' ':modules:submodules:module'";
         String wrongString = "sdfs ser3 r3 sefkselrk";
         List<String> modulesList = new ArrayList<>(3);
         modulesList.add("app");
         modulesList.add("storage");
         modulesList.add("net");
+        modulesList.add("modules/module");
+        modulesList.add("modules/submodules/module");
 
         Assertions.assertEquals(modulesList, ModulesUtil.getModulesFromString(modulesString));
         Assertions.assertEquals(new ArrayList<String>(0), ModulesUtil.getModulesFromString(""));
