@@ -22,10 +22,15 @@
         ]]></description>
 
     <change-notes><![CDATA[
+        <b>1.0.2</b>
+            <ul>
+                <li>BUGFIX: module path detection</li>
+                <li>NEW: logs folder</li>
+            </ul>
         <b>1.0.1</b>
-        <ul>
-            <li>BUGFIX: gradle kotlin dsl support</li>
-        </ul>
+            <ul>
+                <li>BUGFIX: gradle kotlin dsl support</li>
+            </ul>
         ]]>
     </change-notes>
 
