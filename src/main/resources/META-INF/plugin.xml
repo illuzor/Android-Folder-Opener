@@ -15,6 +15,7 @@
             <li>Mapping</li>
             <li>Reports</li>
             <li>Test Results</li>
+            <li>Logs</li>
         </ul>
         <br />
         Available from "Tools/Android Folder Opener" and from search via Ctrl+Shift+A / ⇧⌘A
@@ -81,6 +82,11 @@
             <action id="com.illuzor.afo.actions.OpenTestResultsAction"
                     class="com.illuzor.afo.actions.OpenTestResultsAction"
                     text="Open Test Results Folder">
+            </action>
+
+            <action id="com.illuzor.afo.actions.OpenLogsAction"
+                    class="com.illuzor.afo.actions.OpenLogsAction"
+                    text="Open Logs Folder">
             </action>
 
             <action id="com.illuzor.afo.actions.MainModuleSelectAction"
