@@ -2,18 +2,16 @@ package com.illuzor.afo.actions;
 
 import com.illuzor.afo.constants.Id;
 import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-abstract class OpenFolderAction extends AnAction {
+abstract class OpenFolderAction extends ActionBase {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -33,16 +31,16 @@ abstract class OpenFolderAction extends AnAction {
             showError("Folder '" + folderPath + "' does not exists");
             return;
         }
+        openFolder(folder);
+    }
+
+    private void openFolder(File folder) {
         try {
             Desktop.getDesktop().open(folder);
         } catch (IOException ex) {
             ex.printStackTrace();
-            showError("Unable to open folder '" + folderPath + "'\n" + ex.getMessage());
+            showError("Unable to open folder '" + folder.getPath() + "'\n" + ex.getMessage());
         }
-    }
-
-    private void showError(String message) {
-        Messages.showErrorDialog(message, "Error");
     }
 
     @NotNull
