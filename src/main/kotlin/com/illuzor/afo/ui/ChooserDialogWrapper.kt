@@ -7,7 +7,7 @@ import java.util.function.Consumer
 import javax.swing.BoxLayout
 import javax.swing.JComponent
 
-class ChooserDialogWrapper(project: Project?, private val modulesList: List<String>) : DialogWrapper(project) {
+internal class ChooserDialogWrapper(project: Project?, private val modulesList: List<String>) : DialogWrapper(project) {
 
     private var group: JXRadioGroup<String?>? = null
     private var okClickListener: Consumer<String?>? = null

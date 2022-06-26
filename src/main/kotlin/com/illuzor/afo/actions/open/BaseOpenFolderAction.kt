@@ -2,7 +2,7 @@ package com.illuzor.afo.actions.open
 
 import com.illuzor.afo.constants.Prefs
 import com.illuzor.afo.ext.notExists
-import com.illuzor.afo.ui.showError
+import com.illuzor.afo.ui.showErrorDialog
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -12,7 +12,7 @@ import java.awt.Desktop
 import java.io.File
 import java.io.IOException
 
-abstract class BaseOpenFolderAction : AnAction() {
+internal abstract class BaseOpenFolderAction : AnAction() {
 
     abstract val folderPath: String
 
@@ -21,13 +21,13 @@ abstract class BaseOpenFolderAction : AnAction() {
         val projectPath = project.basePath
         val modulePath = getModulePath(PropertiesComponent.getInstance(project))
         if (File("$projectPath/$modulePath").notExists()) {
-            showError("Module '$modulePath' does not exists")
+            showErrorDialog("Module '$modulePath' does not exists")
             return
         }
         val folderPath = "$projectPath/$modulePath/build/$folderPath"
         val folder = File(folderPath)
         if (folder.notExists()) {
-            showError("Folder '$folderPath' does not exists")
+            showErrorDialog("Folder '$folderPath' does not exists")
             return
         }
         openFolder(folder)
@@ -38,7 +38,7 @@ abstract class BaseOpenFolderAction : AnAction() {
             Desktop.getDesktop().open(folder)
         } catch (e: IOException) {
             e.printStackTrace()
-            showError("""Unable to open folder '${folder.path}'${e.message}""")
+            showErrorDialog("""Unable to open folder '${folder.path}'${e.message}""")
         }
     }
 
