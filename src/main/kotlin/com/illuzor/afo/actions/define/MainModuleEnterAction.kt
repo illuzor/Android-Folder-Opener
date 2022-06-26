@@ -1,38 +1,33 @@
 package com.illuzor.afo.actions.define
 
-import com.illuzor.afo.constants.Prefs.MAIN_MODULE_KEY
+import com.illuzor.afo.actions.BaseAction
+import com.illuzor.afo.ext.notExists
 import com.illuzor.afo.ui.showErrorDialog
-import com.intellij.ide.util.PropertiesComponent
-import com.intellij.openapi.actionSystem.AnAction
-import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.PlatformDataKeys
-import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import java.io.File
 
-class MainModuleEnterAction : AnAction() {
+internal class MainModuleEnterAction : BaseAction() {
 
-    override fun actionPerformed(e: AnActionEvent) {
-        val project: Project = e.getData<Project>(PlatformDataKeys.PROJECT) ?: return
-        val moduleName = showInput(project)
-        if (moduleName == null || moduleName.isEmpty()) {
+    override fun perform() {
+        val moduleName = showInput()
+        if (moduleName.isNullOrEmpty()) {
             return
         }
-        val path = project.basePath + "/" + moduleName + "/build.gradle"
-        val ktsPath = "$path.kts"
-        if (!File(path).exists() && !File(ktsPath).exists()) {
+
+        val gradleConfigPath = project.basePath + "/" + moduleName + "/build.gradle"
+        val gradleConfigKtsPath = "$gradleConfigPath.kts"
+        if (File(gradleConfigPath).notExists() && File(gradleConfigKtsPath).notExists()) {
             showErrorDialog("Module '$moduleName' Does Not Exists")
             return
         }
-        PropertiesComponent.getInstance(project).setValue(MAIN_MODULE_KEY, moduleName)
+        projectPrefs.appModulePath = moduleName
     }
 
-    private fun showInput(project: Project): String? {
-        return Messages.showInputDialog(
+    private fun showInput(): String? =
+        Messages.showInputDialog(
             project,
-            "Enter Main Module Name",
+            "Enter main module name",
             "Main Module Name:",
-            Messages.getQuestionIcon()
+            Messages.getQuestionIcon(),
         )
-    }
 }

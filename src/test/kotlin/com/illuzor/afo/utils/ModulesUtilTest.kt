@@ -1,31 +1,10 @@
 package com.illuzor.afo.utils
 
 import com.illuzor.afo.utils.ModulesUtil.getModulesFromString
-import com.illuzor.afo.utils.ModulesUtil.readFileToString
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
-import java.io.File
-import java.io.IOException
-import java.nio.charset.Charset
-import java.nio.file.Files
 
 class ModulesUtilTest {
-
-    @Test
-    @Throws(IOException::class)
-    fun readFileToString_test() {
-        val testString = "some string for test"
-        val stringFile = File("test.file")
-        Files.write(stringFile.toPath(), testString.toByteArray(Charset.forName("UTF-8")))
-        assertEquals(testString, readFileToString(stringFile))
-        stringFile.delete()
-    }
-
-    @Test
-    fun readFileToString_noFile_test() {
-        assertThrows(IOException::class.java) { readFileToString(File("test1.file")) }
-    }
 
     @Test
     fun modulesFromString_test (){

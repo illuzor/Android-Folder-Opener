@@ -1,6 +1,6 @@
 package com.illuzor.afo.actions.open
 
-class OpenApkFolderAction : BaseOpenFolderAction() {
+internal class OpenApkFolderAction : BaseOpenFolderAction() {
 
     override val folderPath = "outputs/apk"
 }

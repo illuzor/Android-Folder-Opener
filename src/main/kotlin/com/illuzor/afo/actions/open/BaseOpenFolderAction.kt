@@ -1,48 +1,38 @@
 package com.illuzor.afo.actions.open
 
-import com.illuzor.afo.constants.Prefs
+import com.illuzor.afo.actions.BaseAction
 import com.illuzor.afo.ext.notExists
 import com.illuzor.afo.ui.showErrorDialog
-import com.intellij.ide.util.PropertiesComponent
-import com.intellij.openapi.actionSystem.AnAction
-import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.PlatformDataKeys
-import com.intellij.openapi.project.Project
 import java.awt.Desktop
 import java.io.File
 import java.io.IOException
 
-internal abstract class BaseOpenFolderAction : AnAction() {
+internal abstract class BaseOpenFolderAction : BaseAction() {
 
     abstract val folderPath: String
 
-    final override fun actionPerformed(e: AnActionEvent) {
-        val project: Project = e.getData(PlatformDataKeys.PROJECT) ?: return
-        val projectPath = project.basePath
-        val modulePath = getModulePath(PropertiesComponent.getInstance(project))
-        if (File("$projectPath/$modulePath").notExists()) {
-            showErrorDialog("Module '$modulePath' does not exists")
+    override fun perform() {
+        val modulePath = projectPrefs.appModulePath
+        val moduleFolder = File("$projectPath/$modulePath")
+        if (moduleFolder.notExists()) {
+            showErrorDialog("Module '$modulePath' does not exist")
             return
         }
-        val folderPath = "$projectPath/$modulePath/build/$folderPath"
-        val folder = File(folderPath)
-        if (folder.notExists()) {
-            showErrorDialog("Folder '$folderPath' does not exists")
+
+        val folderToOpenPath = "$projectPath/$modulePath/build/$folderPath"
+        val folderToOpen = File(folderToOpenPath)
+        if (folderToOpen.notExists()) {
+            showErrorDialog("Folder '$folderToOpenPath' does not exist")
             return
         }
-        openFolder(folder)
+        openFolder(folderToOpen)
     }
 
-    private fun openFolder(folder: File) {
+    private fun openFolder(folder: File) =
         try {
             Desktop.getDesktop().open(folder)
         } catch (e: IOException) {
             e.printStackTrace()
-            showErrorDialog("""Unable to open folder '${folder.path}'${e.message}""")
+            showErrorDialog("Unable to open folder '${folder.path}'${e.message}")
         }
-    }
-
-    private fun getModulePath(pc: PropertiesComponent): String {
-        return pc.getValue(Prefs.MAIN_MODULE_KEY, "app")
-    }
 }

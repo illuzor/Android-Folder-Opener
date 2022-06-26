@@ -1,6 +1,6 @@
 package com.illuzor.afo.actions.open
 
-class OpenApkDebugFolderAction : BaseOpenFolderAction() {
+internal class OpenApkDebugFolderAction : BaseOpenFolderAction() {
 
     override val folderPath = "outputs/apk/debug"
 }

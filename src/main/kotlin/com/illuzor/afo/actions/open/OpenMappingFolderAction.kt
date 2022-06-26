@@ -1,6 +1,6 @@
 package com.illuzor.afo.actions.open
 
-class OpenMappingFolderAction : BaseOpenFolderAction() {
+internal class OpenMappingFolderAction : BaseOpenFolderAction() {
 
     override val folderPath = "outputs/mapping"
 }
