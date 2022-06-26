@@ -1,7 +1,7 @@
 package com.illuzor.afo.actions.define
 
 import com.illuzor.afo.constants.Prefs.MAIN_MODULE_KEY
-import com.illuzor.afo.ui.showError
+import com.illuzor.afo.ui.showErrorDialog
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -21,7 +21,7 @@ class MainModuleEnterAction : AnAction() {
         val path = project.basePath + "/" + moduleName + "/build.gradle"
         val ktsPath = "$path.kts"
         if (!File(path).exists() && !File(ktsPath).exists()) {
-            showError("Module '$moduleName' Does Not Exists")
+            showErrorDialog("Module '$moduleName' Does Not Exists")
             return
         }
         PropertiesComponent.getInstance(project).setValue(MAIN_MODULE_KEY, moduleName)
