@@ -157,6 +157,64 @@ internal class FileTest {
     }
 
     @Test
+    fun `settingsGradleFile for not existed file - null`() {
+        val file = testFolder.resolve("empty")
+
+        assertNull(file.settingsGradleFile)
+    }
+
+    @Test
+    fun `settingsGradleFile for empty folder - null`() {
+        assertTrue(testFolder.listFiles().isNullOrEmpty())
+        assertNull(testFolder.settingsGradleFile)
+    }
+
+    @Test
+    fun `settingsGradleFile for file - null`() {
+        val file = testFolder.resolve("empty")
+        file.writeText("hello")
+
+        assertTrue(file.exists())
+        assertNull(file.settingsGradleFile)
+    }
+
+    @Test
+    fun `settingsGradleFile for folder with build_gradle folder - null`() {
+        val file = testFolder.resolve("settings.gradle")
+        file.mkdir()
+
+        assertTrue(file.exists())
+        assertNull(testFolder.settingsGradleFile)
+    }
+
+    @Test
+    fun `settingsGradleFile for folder with build_gradle_kts folder - null`() {
+        val file = testFolder.resolve("settings.gradle.kts")
+        file.mkdir()
+
+        assertTrue(file.exists())
+        assertNull(testFolder.settingsGradleFile)
+    }
+
+    @Test
+    fun `settingsGradleFile for folder with build_gradle file - not null`() {
+        val file = testFolder.resolve("settings.gradle")
+        file.writeText("hello")
+
+        assertTrue(file.exists())
+        assertEquals(file, testFolder.settingsGradleFile)
+    }
+
+    @Test
+    fun `settingsGradleFile for folder with build_gradle_kts file - not null`() {
+        val file = testFolder.resolve("settings.gradle.kts")
+        file.writeText("hello")
+
+        assertTrue(file.exists())
+        assertEquals(file, testFolder.settingsGradleFile)
+    }
+
+    @Test
     fun `notExists true`() {
         val file = testFolder.resolve("test")
 
