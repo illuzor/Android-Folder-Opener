@@ -10,7 +10,7 @@ internal fun String.extractModules(): List<String> {
 
     return buildList {
         while (matcher.find()) {
-            add(matcher.group(1).replace(":".toRegex(), "/"))
+            add(matcher.group(1).replace(':', '/'))
         }
     }
 }
