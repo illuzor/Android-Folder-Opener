@@ -103,6 +103,11 @@
                     text="Enter Main Module Name">
             </action>
 
+            <action id="com.illuzor.afo.actions.define.MainModuleBrowseAction"
+                    class="com.illuzor.afo.actions.define.MainModuleBrowseAction"
+                    text="Browse Main Module">
+            </action>
+
             <!--suppress PluginXmlValidity -->
             <add-to-group group-id="AndroidToolsGroup" anchor="first"/>
         </group>
