@@ -5,7 +5,7 @@ import com.illuzor.afo.ui.showErrorDialog
 import com.intellij.openapi.ui.Messages
 import java.io.File
 
-internal class MainModuleEnterAction : DefineMainModuleBaseAction() {
+internal class AppModuleEnterAction : DefineAppModuleBaseAction() {
 
     override fun perform() {
         val moduleName = showInput()?.replace(':', '/')
@@ -16,7 +16,7 @@ internal class MainModuleEnterAction : DefineMainModuleBaseAction() {
         val modulePath = "$projectPath/$moduleName"
         val moduleFolder = File(modulePath)
         if (moduleFolder.notExists()) {
-            showErrorDialog("Directory '$modulePath' does not exist")
+            showErrorDialog("Folder '$modulePath' does not exist")
             return
         }
 
@@ -26,8 +26,8 @@ internal class MainModuleEnterAction : DefineMainModuleBaseAction() {
     private fun showInput(): String? =
         Messages.showInputDialog(
             project,
-            "Enter main module name. For example 'module' or 'module:submodule'",
-            "Main Module Name:",
+            "Enter app module name. For example 'module' or 'module:submodule'",
+            "App Module Name:",
             Messages.getQuestionIcon(),
         )
 }

@@ -41,7 +41,7 @@
     <idea-version since-build="211"/>
 
     <actions>
-        <group id="afo" text="Android Folder Opener" description="Android Folder Opener" popup="true">
+        <group id="afo" text="Android Folder Opener" description="Android folder opener" popup="true">
 
             <action id="com.illuzor.afo.actions.open.OpenApkFolderAction"
                     class="com.illuzor.afo.actions.open.OpenApkFolderAction"
@@ -93,19 +93,19 @@
                     text="Open Logs Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.MainModuleSelectAction"
-                    class="com.illuzor.afo.actions.define.MainModuleSelectAction"
-                    text="Select Main Module">
+            <action id="com.illuzor.afo.actions.define.AppModuleBrowseAction"
+                    class="com.illuzor.afo.actions.define.AppModuleBrowseAction"
+                    text="Browse App Module">
             </action>
 
-            <action id="com.illuzor.afo.actions.MainModuleEnterAction"
-                    class="com.illuzor.afo.actions.define.MainModuleEnterAction"
-                    text="Enter Main Module Name">
+            <action id="com.illuzor.afo.actions.define.AppModuleEnterAction"
+                    class="com.illuzor.afo.actions.define.AppModuleEnterAction"
+                    text="Enter App Module Name">
             </action>
 
-            <action id="com.illuzor.afo.actions.define.MainModuleBrowseAction"
-                    class="com.illuzor.afo.actions.define.MainModuleBrowseAction"
-                    text="Browse Main Module">
+            <action id="com.illuzor.afo.actions.define.AppModuleSelectAction"
+                    class="com.illuzor.afo.actions.define.AppModuleSelectAction"
+                    text="Select App Module">
             </action>
 
             <!--suppress PluginXmlValidity -->

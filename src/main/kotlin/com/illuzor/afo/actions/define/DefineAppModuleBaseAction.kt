@@ -8,7 +8,7 @@ import com.illuzor.afo.ui.showErrorDialog
 import com.illuzor.afo.ui.showInfoNotification
 import java.io.File
 
-internal abstract class DefineMainModuleBaseAction : BaseAction() {
+internal abstract class DefineAppModuleBaseAction : BaseAction() {
 
     fun checkModuleFolderAndSave(
         moduleFolder: File,
@@ -17,13 +17,13 @@ internal abstract class DefineMainModuleBaseAction : BaseAction() {
         val modulePath = moduleFolder.path
 
         if (!moduleFolder.isGradleModule) {
-            showErrorDialog("Directory '$modulePath' is not gradle module")
+            showErrorDialog("Folder '$modulePath' is not a gradle module")
             return
         }
 
         val gradleFile = moduleFolder.gradleFile
         if (gradleFile == null || gradleFile.notExists()) {
-            showErrorDialog("Directory '$modulePath' does not contain gradle file")
+            showErrorDialog("Folder '$modulePath' does not contain a gradle file")
             return
         }
 

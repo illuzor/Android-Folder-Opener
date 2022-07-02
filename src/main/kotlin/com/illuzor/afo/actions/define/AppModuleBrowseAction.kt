@@ -6,7 +6,7 @@ import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.vfs.VirtualFile
 import java.io.File
 
-internal class MainModuleBrowseAction : DefineMainModuleBaseAction() {
+internal class AppModuleBrowseAction : DefineAppModuleBaseAction() {
 
     override fun perform() {
         val selectedFolder: VirtualFile = FileChooser.chooseFile(

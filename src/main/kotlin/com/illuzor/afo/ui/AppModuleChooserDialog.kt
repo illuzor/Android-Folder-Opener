@@ -6,7 +6,7 @@ import org.jdesktop.swingx.JXRadioGroup
 import javax.swing.BoxLayout
 import javax.swing.JComponent
 
-internal class ModuleChooserDialogWrapper(
+internal class AppModuleChooserDialog(
     project: Project?,
     private val modulesList: List<String>,
 ) : DialogWrapper(project) {
@@ -15,7 +15,7 @@ internal class ModuleChooserDialogWrapper(
     private var onChooseListener: ((String) -> Unit)? = null
 
     init {
-        title = "Select Main Module"
+        title = "Select App Module"
         setOKButtonText("Select")
         init()
     }
