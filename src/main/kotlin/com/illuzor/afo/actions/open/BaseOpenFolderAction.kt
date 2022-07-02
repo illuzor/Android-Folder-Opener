@@ -15,14 +15,14 @@ internal abstract class BaseOpenFolderAction : BaseAction() {
         val modulePath = projectPrefs.appModulePath
         val moduleFolder = File("$projectPath/$modulePath")
         if (moduleFolder.notExists()) {
-            showErrorDialog("Module '$modulePath' does not exist")
+            showErrorDialog("Module '$modulePath' does not exist. $MODULE_ERROR_DESCRIPTION")
             return
         }
 
         val folderToOpenPath = "$projectPath/$modulePath/build/$folderPath"
         val folderToOpen = File(folderToOpenPath)
         if (folderToOpen.notExists()) {
-            showErrorDialog("Folder '$folderToOpenPath' does not exist")
+            showErrorDialog("Folder '$folderToOpenPath' does not exist. It should appear after build")
             return
         }
         openFolder(folderToOpen)
@@ -35,4 +35,13 @@ internal abstract class BaseOpenFolderAction : BaseAction() {
             e.printStackTrace()
             showErrorDialog("Unable to open folder '${folder.path}'${e.message}")
         }
+
+    private companion object {
+
+        const val MODULE_ERROR_DESCRIPTION =
+            "\nYou should define app module by one of the following actions: " +
+                    "\n- Browse App Module" +
+                    "\n- Enter App Module Name" +
+                    "\n- Select App Module"
+    }
 }
