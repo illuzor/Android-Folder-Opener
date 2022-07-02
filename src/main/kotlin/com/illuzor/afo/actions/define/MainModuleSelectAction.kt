@@ -1,14 +1,13 @@
 package com.illuzor.afo.actions.define
 
-import com.illuzor.afo.actions.BaseAction
 import com.illuzor.afo.ext.extractModules
 import com.illuzor.afo.ext.notExists
 import com.illuzor.afo.ext.settingsGradleFile
-import com.illuzor.afo.ui.ChooserDialogWrapper
+import com.illuzor.afo.ui.ModuleChooserDialogWrapper
 import com.illuzor.afo.ui.showErrorDialog
 import java.io.File
 
-internal class MainModuleSelectAction : BaseAction() {
+internal class MainModuleSelectAction : DefineMainModuleBaseAction() {
 
     override fun perform() {
         val projectFolder = File(projectPath)
@@ -34,10 +33,8 @@ internal class MainModuleSelectAction : BaseAction() {
     }
 
     private fun showModuleChooser(modules: List<String>) =
-        ChooserDialogWrapper(project, modules).apply {
-            onChoose { moduleName: String ->
-                projectPrefs.appModulePath = moduleName
-            }
+        ModuleChooserDialogWrapper(project, modules).apply {
+            onChoose(::saveModule)
             show()
         }
 }

@@ -16,14 +16,14 @@ internal abstract class BaseAction : AnAction() {
     final override fun actionPerformed(e: AnActionEvent) {
         val project = e.getData(PlatformDataKeys.PROJECT)
         if (project == null) {
-            showErrorNotification(NOTIFICATION_TITLE, "Unable to initialize project")
+            showErrorNotification("Unable to initialize project")
             return
         }
         this.project = project
 
         val projectPath = project.basePath
         if (projectPath == null) {
-            showErrorNotification(NOTIFICATION_TITLE, "Unable to initialize projectPath")
+            showErrorNotification("Unable to initialize projectPath")
             return
         }
 
@@ -34,9 +34,4 @@ internal abstract class BaseAction : AnAction() {
     }
 
     abstract fun perform()
-
-    private companion object {
-
-        const val NOTIFICATION_TITLE = "Android Folder Opener initialization error"
-    }
 }

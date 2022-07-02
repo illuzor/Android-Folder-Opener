@@ -6,7 +6,7 @@ import org.jdesktop.swingx.JXRadioGroup
 import javax.swing.BoxLayout
 import javax.swing.JComponent
 
-internal class ChooserDialogWrapper(
+internal class ModuleChooserDialogWrapper(
     project: Project?,
     private val modulesList: List<String>,
 ) : DialogWrapper(project) {
