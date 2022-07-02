@@ -25,8 +25,13 @@ Android Studio plugin with quick actions for open project folders:
 
 ![afo-actions.png](https://images.illuzor.com/uploads/afo-actions.png)
 
-## Change main module name
+## Define application module
 
-Default module name is **app**. You can change it via following commands:
-* Select Main Module
-* Enter Main Module Name
+Default app module name is **app**. You can change it with following action:
+* Browse App Module
+* Enter App Module Name
+* Select App Module
+
+## Icons
+[Blue Folder](https://icon-icons.com/icon/folder/103595)
+[Android](https://icon-icons.com/icon/android-plain-logo/146651)
