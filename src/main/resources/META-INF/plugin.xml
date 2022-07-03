@@ -22,6 +22,13 @@
         ]]></description>
 
     <change-notes><![CDATA[
+     <b>1.1.0</b>
+            <ul>
+                <li>NEW: rewritten to kotlin</li>
+                <li>NEW: Browse App Module action</li>
+                <li>NEW: informative notifications and errors</li>
+                <li>NEW: icon</li>
+            </ul>
         <b>1.0.2</b>
             <ul>
                 <li>BUGFIX: module path detection</li>
@@ -34,74 +41,78 @@
         ]]>
     </change-notes>
 
-    <depends>com.intellij.modules.platform</depends>
     <!--suppress PluginXmlValidity -->
     <depends>org.jetbrains.android</depends>
+    <depends>com.intellij.modules.platform</depends>
 
-    <!-- Android Studio 3.2+ -->
-    <idea-version since-build="181"/>
+    <idea-version since-build="211"/>
 
     <actions>
-        <group id="afo" text="Android Folder Opener" description="Android Folder Opener" popup="true">
+        <group id="afo" text="Android Folder Opener" description="Android folder opener" popup="true">
 
-            <action id="com.illuzor.afo.actions.OpenApkAction"
-                    class="com.illuzor.afo.actions.OpenApkAction"
+            <action id="com.illuzor.afo.actions.open.OpenApkFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenApkFolderAction"
                     text="Open APK Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenApkReleaseAction"
-                    class="com.illuzor.afo.actions.OpenApkReleaseAction"
+            <action id="com.illuzor.afo.actions.open.OpenApkReleaseFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenApkReleaseFolderAction"
                     text="Open APK Release Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenApkDebugAction"
-                    class="com.illuzor.afo.actions.OpenApkDebugAction"
+            <action id="com.illuzor.afo.actions.open.OpenApkDebugFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenApkDebugFolderAction"
                     text="Open APK Debug Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenBundleAction"
-                    class="com.illuzor.afo.actions.OpenBundleAction"
+            <action id="com.illuzor.afo.actions.open.OpenBundleFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenBundleFolderAction"
                     text="Open Bundle Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenBundleReleaseAction"
-                    class="com.illuzor.afo.actions.OpenBundleReleaseAction"
+            <action id="com.illuzor.afo.actions.open.OpenBundleReleaseFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenBundleReleaseFolderAction"
                     text="Open Bundle Release Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenBundleDebugAction"
-                    class="com.illuzor.afo.actions.OpenBundleDebugAction"
+            <action id="com.illuzor.afo.actions.open.OpenBundleDebugFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenBundleDebugFolderAction"
                     text="Open Bundle Debug Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenReportsAction"
-                    class="com.illuzor.afo.actions.OpenReportsAction"
+            <action id="com.illuzor.afo.actions.open.OpenReportsFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenReportsFolderAction"
                     text="Open Reports Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenMappingAction"
-                    class="com.illuzor.afo.actions.OpenMappingAction"
+            <action id="com.illuzor.afo.actions.open.OpenMappingFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenMappingFolderAction"
                     text="Open Mapping Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenTestResultsAction"
-                    class="com.illuzor.afo.actions.OpenTestResultsAction"
+            <action id="com.illuzor.afo.actions.open.OpenTestResultsFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenTestResultsFolderAction"
                     text="Open Test Results Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.OpenLogsAction"
-                    class="com.illuzor.afo.actions.OpenLogsAction"
+            <action id="com.illuzor.afo.actions.open.OpenLogsFolderAction"
+                    class="com.illuzor.afo.actions.open.OpenLogsFolderAction"
                     text="Open Logs Folder">
             </action>
 
-            <action id="com.illuzor.afo.actions.MainModuleSelectAction"
-                    class="com.illuzor.afo.actions.MainModuleSelectAction"
-                    text="Select Main Module">
+            <action id="com.illuzor.afo.actions.define.AppModuleBrowseAction"
+                    class="com.illuzor.afo.actions.define.AppModuleBrowseAction"
+                    text="Browse App Module">
             </action>
 
-            <action id="com.illuzor.afo.actions.MainModuleEnterAction"
-                    class="com.illuzor.afo.actions.MainModuleEnterAction"
-                    text="Enter Main Module Name">
+            <action id="com.illuzor.afo.actions.define.AppModuleEnterAction"
+                    class="com.illuzor.afo.actions.define.AppModuleEnterAction"
+                    text="Enter App Module Name">
+            </action>
+
+            <action id="com.illuzor.afo.actions.define.AppModuleSelectAction"
+                    class="com.illuzor.afo.actions.define.AppModuleSelectAction"
+                    text="Select App Module">
             </action>
 
             <!--suppress PluginXmlValidity -->
