@@ -22,6 +22,13 @@
         ]]></description>
 
     <change-notes><![CDATA[
+     <b>1.1.0</b>
+            <ul>
+                <li>NEW: rewritten to kotlin</li>
+                <li>NEW: Browse App Module action</li>
+                <li>NEW: informative notifications and errors</li>
+                <li>NEW: icon</li>
+            </ul>
         <b>1.0.2</b>
             <ul>
                 <li>BUGFIX: module path detection</li>
