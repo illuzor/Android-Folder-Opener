@@ -5,6 +5,8 @@
 ![AFO workflow](https://github.com/illuzor/Android-Folder-Opener/actions/workflows/gradle.yml/badge.svg)
 [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
+<img src="src/main/resources/META-INF/pluginIcon.svg" width="20%" />
+
 Android Studio plugin with quick actions for open project folders:
 
 * APK
@@ -36,5 +38,5 @@ Default app module name is **app**. You can change it with following action:
 * Select App Module
 
 ## Icons
-[Blue Folder](https://icon-icons.com/icon/folder/103595)
-[Android](https://icon-icons.com/icon/android-plain-logo/146651)
+* [Blue Folder](https://icon-icons.com/icon/folder/103595)
+* [Android](https://icon-icons.com/icon/android-plain-logo/146651)
