@@ -2,6 +2,7 @@
 
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 [![Version](https://img.shields.io/jetbrains/plugin/v/11506-android-folder-opener.svg)](https://plugins.jetbrains.com/plugin/11506-android-folder-opener)
+![example workflow](https://github.com/illuzor/Android-Folder-Opener/actions/workflows/gradle.yml/badge.svg)
 [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
 Android Studio plugin with quick actions for open project folders:
