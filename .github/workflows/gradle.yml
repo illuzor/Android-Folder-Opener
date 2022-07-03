@@ -23,11 +23,11 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: ktlint check
+    - name: Ktlint check
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: ktlintCheck
-    - name: tests
+    - name: Tests
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: test
