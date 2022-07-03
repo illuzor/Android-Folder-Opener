@@ -34,10 +34,9 @@ internal class StringTest {
                     listOf("module"),
                 ),
                 arguments(
-                    """
-                        ":module",
+                    """":module",
                         ":module:submodule"
-                        """.trimIndent(),
+                    """.trimIndent(),
                     listOf("module", "module/submodule"),
                 ),
                 arguments(
@@ -48,9 +47,8 @@ internal class StringTest {
                           ":domain",
                           ":presentation",
                           ":ui",
-                          ":utils",
-                      )
-                  """.trimIndent(),
+                          ":utils",)
+                    """.trimIndent(),
                     listOf("app", "features", "domain", "presentation", "ui", "utils"),
                 ),
                 arguments(
@@ -65,7 +63,7 @@ internal class StringTest {
                           ":ui",
                           ":utils",
                       )
-                  """.trimIndent(),
+                    """.trimIndent(),
                     listOf(
                         "app",
                         "features/feature1",

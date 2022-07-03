@@ -40,8 +40,8 @@ internal abstract class BaseOpenFolderAction : BaseAction() {
 
         const val MODULE_ERROR_DESCRIPTION =
             "\nYou should define app module by one of the following actions: " +
-                    "\n- Browse App Module" +
-                    "\n- Enter App Module Name" +
-                    "\n- Select App Module"
+                "\n- Browse App Module" +
+                "\n- Enter App Module Name" +
+                "\n- Select App Module"
     }
 }
