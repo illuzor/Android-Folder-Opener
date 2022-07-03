@@ -13,9 +13,7 @@ repositories {
 
 intellij {
     version.set("2021.2")
-    type.set("IC") // Target IDE Platform
-
-    //plugins.set(listOf(/* Plugin Dependencies */))
+    type.set("IC")
 }
 
 tasks {
@@ -30,25 +28,10 @@ tasks {
     withType<Test>().configureEach {
         useJUnitPlatform()
     }
-
-    /*patchPluginXml {
-        sinceBuild.set("211")
-        untilBuild.set("222.*")
-    }*/
-
-    /*signPlugin {
-        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-        privateKey.set(System.getenv("PRIVATE_KEY"))
-        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
-    }*/
-
-    /*publishPlugin {
-         token.set(System.getenv("PUBLISH_TOKEN"))
-     }*/
 }
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.8.2"))
-    testImplementation("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
