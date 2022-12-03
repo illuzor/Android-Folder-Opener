@@ -9,9 +9,9 @@ buildscript {
 
 plugins {
     id("java")
-    id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
-    id("org.jetbrains.kotlin.jvm") version "1.7.0"
-    id("org.jetbrains.intellij") version "1.6.0"
+    id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
+    id("org.jetbrains.kotlin.jvm") version "1.7.21"
+    id("org.jetbrains.intellij") version "1.10.0"
 }
 
 group = "com.illuzor.afo"
@@ -51,7 +51,7 @@ tasks {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.8.2"))
+    testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
