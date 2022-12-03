@@ -45,7 +45,7 @@
     <depends>org.jetbrains.android</depends>
     <depends>com.intellij.modules.platform</depends>
 
-    <idea-version since-build="211"/>
+    <idea-version since-build="213.7172"/>
 
     <actions>
         <group id="afo" text="Android Folder Opener" description="Android folder opener" popup="true">
