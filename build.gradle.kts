@@ -37,19 +37,10 @@ intellij {
     updateSinceUntilBuild.set(false)
 }
 
-tasks {
-    withType<JavaCompile> {
-        sourceCompatibility = "11"
-        targetCompatibility = "11"
-    }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
-    }
-
-    withType<Test>().configureEach {
-        useJUnitPlatform()
-    }
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
+
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.3"))
