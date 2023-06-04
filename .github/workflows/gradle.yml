@@ -31,13 +31,11 @@ jobs:
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: test
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Junit5 Tests
-          path: build/test-results/test/TEST-*.xml
-          reporter: java-junit
+      - name: Publish Test Report
+          uses: mikepenz/action-junit-report@v3
+          if: success() || failure()
+          with:
+            report_paths: '**/build/test-results/test/TEST-*.xml'
       - name: Build Plugin
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
