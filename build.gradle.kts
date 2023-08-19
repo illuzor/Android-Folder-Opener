@@ -10,7 +10,7 @@ buildscript {
 plugins {
     id("java")
     id("org.jlleitschuh.gradle.ktlint") version "11.3.2"
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
+    id("org.jetbrains.kotlin.jvm") version "1.9.0"
     id("org.jetbrains.intellij") version "1.13.3"
 }
 
