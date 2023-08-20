@@ -21,5 +21,5 @@ internal fun showErrorNotification(message: String) = showNotification(message, 
 
 private fun showNotification(message: String, type: NotificationType) =
     Notifications.Bus.notify(
-        Notification(NOTIFICATIONS_GROUP_ID, TITLE_PLUGIN_NAME, message, type)
+        Notification(NOTIFICATIONS_GROUP_ID, TITLE_PLUGIN_NAME, message, type),
     )
