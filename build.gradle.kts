@@ -9,9 +9,9 @@ buildscript {
 
 plugins {
     id("java")
-    id("org.jlleitschuh.gradle.ktlint") version "11.3.2"
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
-    id("org.jetbrains.intellij") version "1.13.3"
+    id("org.jlleitschuh.gradle.ktlint") version "11.5.1"
+    id("org.jetbrains.kotlin.jvm") version "1.9.0"
+    id("org.jetbrains.intellij") version "1.15.0"
 }
 
 group = "com.illuzor.afo"
@@ -22,13 +22,7 @@ repositories {
 }
 
 ktlint {
-    version.set("0.45.2")
-    disabledRules.set(
-        setOf(
-            "no-wildcard-imports",
-            "import-ordering",
-        )
-    )
+    version.set("0.50.0")
 }
 
 intellij {
