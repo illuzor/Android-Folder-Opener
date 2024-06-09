@@ -11,9 +11,7 @@ import org.junit.jupiter.api.Test
 import java.io.File
 
 internal class FileTest {
-
     companion object {
-
         private val testFolder = File("test_files")
 
         @BeforeAll

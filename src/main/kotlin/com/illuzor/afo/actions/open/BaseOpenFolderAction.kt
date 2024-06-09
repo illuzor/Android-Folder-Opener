@@ -8,7 +8,6 @@ import java.io.File
 import java.io.IOException
 
 internal abstract class BaseOpenFolderAction : BaseAction() {
-
     abstract val folderPath: String
 
     override fun perform() {
@@ -37,7 +36,6 @@ internal abstract class BaseOpenFolderAction : BaseAction() {
         }
 
     private companion object {
-
         const val MODULE_ERROR_DESCRIPTION =
             "\nYou should define app module by one of the following actions: " +
                 "\n- Browse App Module" +

@@ -19,7 +19,9 @@ internal fun showInfoNotification(message: String) = showNotification(message, I
 
 internal fun showErrorNotification(message: String) = showNotification(message, ERROR)
 
-private fun showNotification(message: String, type: NotificationType) =
-    Notifications.Bus.notify(
-        Notification(NOTIFICATIONS_GROUP_ID, TITLE_PLUGIN_NAME, message, type),
-    )
+private fun showNotification(
+    message: String,
+    type: NotificationType,
+) = Notifications.Bus.notify(
+    Notification(NOTIFICATIONS_GROUP_ID, TITLE_PLUGIN_NAME, message, type),
+)

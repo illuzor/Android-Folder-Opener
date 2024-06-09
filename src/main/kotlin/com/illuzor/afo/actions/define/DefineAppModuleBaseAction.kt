@@ -9,7 +9,6 @@ import com.illuzor.afo.ui.showInfoNotification
 import java.io.File
 
 internal abstract class DefineAppModuleBaseAction : BaseAction() {
-
     fun checkModuleFolderAndSave(
         moduleFolder: File,
         moduleName: String,

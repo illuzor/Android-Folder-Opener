@@ -8,7 +8,6 @@ import com.illuzor.afo.ui.showErrorDialog
 import java.io.File
 
 internal class AppModuleSelectAction : DefineAppModuleBaseAction() {
-
     override fun perform() {
         val projectFolder = File(projectPath)
         if (projectFolder.notExists() || projectFolder.listFiles().isNullOrEmpty()) {
