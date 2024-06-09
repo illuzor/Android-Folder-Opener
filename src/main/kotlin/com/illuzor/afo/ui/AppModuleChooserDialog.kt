@@ -10,7 +10,6 @@ internal class AppModuleChooserDialog(
     project: Project?,
     private val modulesList: List<String>,
 ) : DialogWrapper(project) {
-
     private var group: JXRadioGroup<String?>? = null
     private var onChooseListener: ((String) -> Unit)? = null
 
@@ -25,10 +24,11 @@ internal class AppModuleChooserDialog(
     }
 
     override fun createCenterPanel(): JComponent? {
-        group = JXRadioGroup(modulesList.toTypedArray()).apply {
-            selectedValue = modulesList.firstOrNull()
-            setLayoutAxis(BoxLayout.Y_AXIS)
-        }
+        group =
+            JXRadioGroup(modulesList.toTypedArray()).apply {
+                selectedValue = modulesList.firstOrNull()
+                setLayoutAxis(BoxLayout.Y_AXIS)
+            }
         return group
     }
 

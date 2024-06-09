@@ -13,10 +13,14 @@ private class StringPrefDelegate(
     private val props: PropertiesComponent,
     private val defaultValue: String,
 ) : ReadWriteProperty<Any, String> {
+    override fun getValue(
+        thisRef: Any,
+        property: KProperty<*>,
+    ): String = props.getValue(property.name, defaultValue)
 
-    override fun getValue(thisRef: Any, property: KProperty<*>): String =
-        props.getValue(property.name, defaultValue)
-
-    override fun setValue(thisRef: Any, property: KProperty<*>, value: String) =
-        props.setValue(property.name, value)
+    override fun setValue(
+        thisRef: Any,
+        property: KProperty<*>,
+        value: String,
+    ) = props.setValue(property.name, value)
 }

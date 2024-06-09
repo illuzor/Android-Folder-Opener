@@ -6,7 +6,6 @@ import com.intellij.openapi.ui.Messages
 import java.io.File
 
 internal class AppModuleEnterAction : DefineAppModuleBaseAction() {
-
     override fun perform() {
         val moduleName = showInput()?.replace(':', '/')
         if (moduleName.isNullOrEmpty()) {

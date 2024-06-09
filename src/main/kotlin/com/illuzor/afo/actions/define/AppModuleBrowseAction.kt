@@ -7,13 +7,13 @@ import com.intellij.openapi.vfs.VirtualFile
 import java.io.File
 
 internal class AppModuleBrowseAction : DefineAppModuleBaseAction() {
-
     override fun perform() {
-        val selectedFolder: VirtualFile = FileChooser.chooseFile(
-            FileChooserDescriptorFactory.createSingleFolderDescriptor(),
-            project,
-            project.projectFile,
-        ) ?: return
+        val selectedFolder: VirtualFile =
+            FileChooser.chooseFile(
+                FileChooserDescriptorFactory.createSingleFolderDescriptor(),
+                project,
+                project.projectFile,
+            ) ?: return
 
         val selectedFolderPath = selectedFolder.path
         if (selectedFolderPath == projectPath) {

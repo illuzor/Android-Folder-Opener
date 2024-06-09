@@ -8,7 +8,6 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.project.Project
 
 internal abstract class BaseAction : AnAction() {
-
     protected lateinit var project: Project
     protected lateinit var projectPath: String
     protected lateinit var projectPrefs: ProjectPrefs
