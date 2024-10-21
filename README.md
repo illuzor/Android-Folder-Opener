@@ -24,11 +24,12 @@ Android Studio plugin with quick actions for open project folders:
 
 1) Tools/Android Folder Opener
 
-![afo-menu.png](https://images.illuzor.com/uploads/afo-menu.png)
+![afo-menu](https://github.com/user-attachments/assets/d0b3844e-f1e1-46b5-8f90-6642d19309de)
+
 
 2) Enter action name in the [Actions Search Dialog](https://www.jetbrains.com/help/idea/2017.2/navigating-to-action.html) (Ctrl+Shift+A / ⇧⌘A)
 
-![afo-actions.png](https://images.illuzor.com/uploads/afo-actions.png)
+![afo-actions](https://github.com/user-attachments/assets/80868ab7-e37e-4643-95a8-f0c161e20503)
 
 ## Define application module
 
