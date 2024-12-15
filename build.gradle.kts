@@ -26,8 +26,21 @@ intellij {
     updateSinceUntilBuild.set(false)
 }
 
-tasks.test {
-    useJUnitPlatform()
+tasks {
+    withType<JavaCompile> {
+        sourceCompatibility = "11"
+        targetCompatibility = "11"
+    }
+
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
+    }
+
+    withType<Test>().configureEach {
+        useJUnitPlatform()
+    }
 }
 
 dependencies {
