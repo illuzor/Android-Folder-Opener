@@ -1,17 +1,8 @@
-buildscript {
-    repositories {
-        maven("https://plugins.gradle.org/m2/") // for ktlint-gradle plugin
-    }
-    dependencies {
-        classpath("org.jlleitschuh.gradle:ktlint-gradle")
-    }
-}
-
 plugins {
     id("java")
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
-    id("org.jetbrains.kotlin.jvm") version "2.0.0"
-    id("org.jetbrains.intellij") version "1.17.3"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
+    id("org.jetbrains.kotlin.jvm") version "2.0.21"
+    id("org.jetbrains.intellij") version "1.17.4"
 }
 
 group = "com.illuzor.afo"
@@ -21,8 +12,12 @@ repositories {
     mavenCentral()
 }
 
+kotlin {
+    jvmToolchain(21)
+}
+
 ktlint {
-    version.set("1.3.0")
+    version.set("1.5.0")
 }
 
 intellij {
@@ -36,8 +31,11 @@ tasks {
         sourceCompatibility = "11"
         targetCompatibility = "11"
     }
+
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
     }
 
     withType<Test>().configureEach {
@@ -46,7 +44,7 @@ tasks {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.2"))
+    testImplementation(platform("org.junit:junit-bom:5.11.3"))
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
