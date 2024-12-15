@@ -1,12 +1,3 @@
-buildscript {
-    repositories {
-        maven("https://plugins.gradle.org/m2/") // for ktlint-gradle plugin
-    }
-    dependencies {
-        classpath("org.jlleitschuh.gradle:ktlint-gradle")
-    }
-}
-
 plugins {
     id("java")
     id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
@@ -21,6 +12,10 @@ repositories {
     mavenCentral()
 }
 
+kotlin{
+    jvmToolchain(21)
+}
+
 ktlint {
     version.set("1.5.0")
 }
@@ -31,18 +26,8 @@ intellij {
     updateSinceUntilBuild.set(false)
 }
 
-tasks {
-    withType<JavaCompile> {
-        sourceCompatibility = "11"
-        targetCompatibility = "11"
-    }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
-    }
-
-    withType<Test>().configureEach {
-        useJUnitPlatform()
-    }
+tasks.test {
+    useJUnitPlatform()
 }
 
 dependencies {
