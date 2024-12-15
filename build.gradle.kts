@@ -12,7 +12,7 @@ repositories {
     mavenCentral()
 }
 
-kotlin{
+kotlin {
     jvmToolchain(21)
 }
 
