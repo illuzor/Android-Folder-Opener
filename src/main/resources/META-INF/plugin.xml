@@ -1,4 +1,5 @@
-<idea-plugin>
+<idea-plugin require-restart="false">
+
     <id>com.illuzor.afo</id>
     <name>Android Folder Opener</name>
     <vendor email="illuzor@gmail.com" url="https://github.com/illuzor/Android-Folder-Opener">Artem Zanin</vendor>
@@ -49,9 +50,6 @@
     <!--suppress PluginXmlValidity -->
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
-    <dependencies>
-        <plugin id="org.jetbrains.android"/>
-    </dependencies>
 
     <idea-version since-build="213.7172"/>
 
