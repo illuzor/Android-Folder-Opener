@@ -13,7 +13,7 @@ val sinceBuildIdeaVersion = "213.7172"
 val verificationIdeaVersion = "2023.2.7"
 
 group = "com.illuzor.afo"
-version = "1.1.1"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
