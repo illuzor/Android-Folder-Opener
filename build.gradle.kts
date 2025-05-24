@@ -1,15 +1,27 @@
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
+import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id("java")
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
-    id("org.jetbrains.kotlin.jvm") version "2.0.21"
-    id("org.jetbrains.intellij") version "1.17.4"
+    id("org.jlleitschuh.gradle.ktlint") version "12.3.0"
+    id("org.jetbrains.kotlin.jvm") version "2.1.21"
+    id("org.jetbrains.intellij.platform") version "2.6.0"
 }
+
+val sinceBuildIdeaVersion = "213.7172"
+val verificationIdeaVersion = "2023.2.7"
 
 group = "com.illuzor.afo"
 version = "1.1.1"
 
 repositories {
     mavenCentral()
+
+    intellijPlatform {
+        defaultRepositories()
+        localPlatformArtifacts()
+    }
 }
 
 kotlin {
@@ -17,13 +29,24 @@ kotlin {
 }
 
 ktlint {
-    version.set("1.5.0")
+    version.set("1.6.0")
 }
 
-intellij {
-    version.set("2021.3.3")
-    type.set("IC")
-    updateSinceUntilBuild.set(false)
+intellijPlatform {
+    pluginConfiguration {
+        version = project.version.toString()
+        name = "Android Folder Opener"
+
+        ideaVersion {
+            sinceBuild = sinceBuildIdeaVersion
+        }
+    }
+
+    pluginVerification {
+        ides {
+            ide(IntelliJPlatformType.IntellijIdeaCommunity, version = verificationIdeaVersion)
+        }
+    }
 }
 
 tasks {
@@ -34,7 +57,7 @@ tasks {
 
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_11)
         }
     }
 
@@ -44,7 +67,15 @@ tasks {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.11.3"))
+    testImplementation(platform("org.junit:junit-bom:5.12.2"))
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("junit:junit:4.13.2") // tests fails without this dependency
+
+    intellijPlatform {
+        intellijIdeaCommunity(version = verificationIdeaVersion)
+        pluginVerifier()
+        testFramework(TestFrameworkType.JUnit5)
+    }
 }
