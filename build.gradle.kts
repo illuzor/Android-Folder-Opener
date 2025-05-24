@@ -71,10 +71,11 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("junit:junit:4.13.2") // tests fails without this dependency
 
     intellijPlatform {
         intellijIdeaCommunity(version = verificationIdeaVersion)
         pluginVerifier()
-        testFramework(TestFrameworkType.Platform)
+        testFramework(TestFrameworkType.JUnit5)
     }
 }
