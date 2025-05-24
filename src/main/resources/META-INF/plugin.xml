@@ -22,7 +22,12 @@
         ]]></description>
 
     <change-notes><![CDATA[
-     <b>1.1.0</b>
+        <b>1.2.0</b>
+        <ul>
+            <li>UPDATE: JetBrains Platform</li>
+            <li>UPDATE: Compatibility with latest IDEs</li>
+        </ul>
+        <b>1.1.0</b>
             <ul>
                 <li>NEW: rewritten to kotlin</li>
                 <li>NEW: Browse App Module action</li>
