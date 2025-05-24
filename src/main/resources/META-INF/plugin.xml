@@ -42,8 +42,11 @@
     </change-notes>
 
     <!--suppress PluginXmlValidity -->
-    <depends>org.jetbrains.android</depends>
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <dependencies>
+        <plugin id="org.jetbrains.android"/>
+    </dependencies>
 
     <idea-version since-build="213.7172"/>
 
