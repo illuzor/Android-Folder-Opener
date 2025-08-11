@@ -4,9 +4,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("java")
-    id("org.jlleitschuh.gradle.ktlint") version "12.3.0"
-    id("org.jetbrains.kotlin.jvm") version "2.1.21"
-    id("org.jetbrains.intellij.platform") version "2.6.0"
+    id("org.jlleitschuh.gradle.ktlint") version "13.0.0"
+    id("org.jetbrains.kotlin.jvm") version "2.2.0"
+    id("org.jetbrains.intellij.platform") version "2.7.1"
 }
 
 val sinceBuildIdeaVersion = "213.7172"
@@ -29,7 +29,7 @@ kotlin {
 }
 
 ktlint {
-    version.set("1.6.0")
+    version.set("1.7.1")
 }
 
 intellijPlatform {
@@ -67,7 +67,7 @@ tasks {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.12.2"))
+    testImplementation(platform("org.junit:junit-bom:5.13.4"))
     testImplementation("org.junit.jupiter:junit-jupiter-params")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
