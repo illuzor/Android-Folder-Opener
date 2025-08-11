@@ -42,7 +42,6 @@ intellijPlatform {
         }
     }
 
-
     pluginVerification {
         ides {
             create(
