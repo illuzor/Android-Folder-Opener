@@ -25,7 +25,7 @@ repositories {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(JvmTarget.JVM_21.target.toInt())
 }
 
 ktlint {
@@ -42,6 +42,7 @@ intellijPlatform {
         }
     }
 
+
     pluginVerification {
         ides {
             create(
@@ -54,8 +55,8 @@ intellijPlatform {
 
 tasks {
     withType<JavaCompile> {
-        sourceCompatibility = "11"
-        targetCompatibility = "11"
+        sourceCompatibility = JvmTarget.JVM_11.target
+        targetCompatibility = JvmTarget.JVM_11.target
     }
 
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -64,7 +65,7 @@ tasks {
         }
     }
 
-    withType<Test>().configureEach {
+    test {
         useJUnitPlatform()
     }
 }
