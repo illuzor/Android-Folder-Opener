@@ -44,7 +44,10 @@ intellijPlatform {
 
     pluginVerification {
         ides {
-            ide(IntelliJPlatformType.IntellijIdeaCommunity, version = verificationIdeaVersion)
+            create(
+                type = IntelliJPlatformType.IntellijIdeaCommunity,
+                version = verificationIdeaVersion,
+            )
         }
     }
 }
