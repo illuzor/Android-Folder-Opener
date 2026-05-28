@@ -4,13 +4,13 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("java")
-    id("org.jlleitschuh.gradle.ktlint") version "13.0.0"
-    id("org.jetbrains.kotlin.jvm") version "2.2.0"
-    id("org.jetbrains.intellij.platform") version "2.7.1"
+    alias(libs.plugins.ktlint.gradle.plugin)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.intellij.platform)
 }
 
-val sinceBuildIdeaVersion = "213.7172"
-val verificationIdeaVersion = "2023.2.7"
+val sinceBuildIdeaVersion = libs.versions.sinceBuildIdea.get()
+val verificationIdeaVersion = libs.versions.verificationIdea.get()
 
 group = "com.illuzor.afo"
 version = "1.2.2"
@@ -25,11 +25,12 @@ repositories {
 }
 
 kotlin {
-    jvmToolchain(JvmTarget.JVM_21.target.toInt())
+    jvmToolchain(libs.versions.jvmTarget.get().toInt())
 }
 
+val ktlintVersion = libs.versions.ktlint.core.get()
 ktlint {
-    version.set("1.7.1")
+    version.set(ktlintVersion)
 }
 
 intellijPlatform {
@@ -70,11 +71,11 @@ tasks {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.13.4"))
-    testImplementation("org.junit.jupiter:junit-jupiter-params")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    testImplementation("junit:junit:4.13.2") // tests fails without this dependency
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.jupiter.params)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
+    testImplementation(libs.junit.legacy) // tests fails without this dependency
 
     intellijPlatform {
         intellijIdeaCommunity(version = verificationIdeaVersion)
