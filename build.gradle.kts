@@ -25,10 +25,16 @@ repositories {
 }
 
 kotlin {
-    jvmToolchain(libs.versions.jvmTarget.get().toInt())
+    jvmToolchain(
+        libs.versions.jvmTarget
+            .get()
+            .toInt(),
+    )
 }
 
-val ktlintVersion = libs.versions.ktlint.core.get()
+val ktlintVersion =
+    libs.versions.ktlint.core
+        .get()
 ktlint {
     version.set(ktlintVersion)
 }

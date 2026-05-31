@@ -1,22 +1,22 @@
 [versions]
 # Kotlin
-kotlin = "2.2.0" # https://kotlinlang.org/
+kotlin = "2.3.21"                # https://github.com/JetBrains/kotlin/
 
-# Testing - JUnit5
-junit-bom = "5.13.4" # https://junit.org/junit5/
-junit-legacy = "4.13.2" # https://junit.org/junit4/
+# Testing - JUnit6
+junit-bom = "6.1.0"              # https://junit.org/junit5/
+junit-legacy = "4.13.2"          # https://junit.org/junit4/
 
 # KtLint
-ktlint-core = "1.7.1" # https://pinterest.github.io/ktlint/
+ktlint-core = "1.8.0"            # https://github.com/ktlint/ktlint
 
 # Gradle plugins
-ktlint-gradle = "13.0.0" # https://github.com/JLLeitschuh/ktlint-gradle
-intellij-platform = "2.7.1" # https://github.com/JetBrains/intellij-platform-gradle-plugin
+ktlint-gradle = "14.2.0"         # https://github.com/JLLeitschuh/ktlint-gradle
+intellij-platform = "2.16.0"     # https://github.com/JetBrains/intellij-platform-gradle-plugin
 
 # IDE versions
-sinceBuildIdea = "213.7172" # https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html
-verificationIdea = "2023.2.7" # https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
-jvmTarget = "21" # https://docs.oracle.com/en/java/javase/21/
+sinceBuildIdea = "213.7172"      # https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html
+verificationIdea = "2023.2.7"    # https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+jvmTarget = "21"                 # https://docs.oracle.com/en/java/javase/21/
 
 [libraries]
 junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit-bom" }
