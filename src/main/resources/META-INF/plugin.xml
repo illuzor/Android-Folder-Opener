@@ -23,6 +23,12 @@
         ]]></description>
 
     <change-notes><![CDATA[
+        <b>1.3.0</b>
+        <ul>
+            <li>UPDATE: JetBrains Platform</li>
+            <li>UPDATE: Compatibility with latest IDEs</li>
+            <li>UPDATE: Minimum supported IDE is 2024.2 / Android Studio Ladybug</li>
+        </ul>
         <b>1.2.0</b>
         <ul>
             <li>UPDATE: JetBrains Platform</li>
@@ -51,7 +57,7 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
 
-    <idea-version since-build="213.7172"/>
+    <idea-version since-build="242"/>
 
     <actions>
         <group id="afo" text="Android Folder Opener" description="Android folder opener" popup="true">
