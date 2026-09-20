@@ -23,6 +23,12 @@
         ]]></description>
 
     <change-notes><![CDATA[
+        <b>1.3.0</b>
+        <ul>
+            <li>UPDATE: JetBrains Platform</li>
+            <li>UPDATE: Compatibility with latest IDEs</li>
+            <li>UPDATE: Minimum supported IDE is 2024.2 / Android Studio Ladybug</li>
+        </ul>
         <b>1.2.0</b>
         <ul>
             <li>UPDATE: JetBrains Platform</li>
