@@ -1,5 +1,7 @@
 import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+import org.jetbrains.intellij.platform.gradle.models.ProductRelease
+import org.jetbrains.intellij.platform.gradle.providers.ProductReleasesFilterParameters
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -10,7 +12,18 @@ plugins {
 }
 
 val sinceBuildIdeaVersion = libs.versions.sinceBuildIdea.get()
-val verificationIdeaVersion = libs.versions.verificationIdea.get()
+val platformIdeaVersion = libs.versions.platformIdea.get()
+val oldestAndroidStudioVersion = libs.versions.oldestAndroidStudio.get()
+val pluginJvmTarget = JvmTarget.fromTarget(libs.versions.jvmTarget.get())
+
+// the newest released IDE of the given type, resolved on every build, so new releases are picked up automatically
+fun latestReleaseOf(type: IntelliJPlatformType): ProductReleasesFilterParameters.() -> Unit =
+    {
+        types = listOf(type)
+        channels = listOf(ProductRelease.Channel.RELEASE)
+        sinceBuild = sinceBuildIdeaVersion
+        untilBuild = ""
+    }
 
 group = "com.illuzor.afo"
 version = "1.2.2"
@@ -26,7 +39,7 @@ repositories {
 
 kotlin {
     jvmToolchain(
-        libs.versions.jvmTarget
+        libs.versions.jvmToolchain
             .get()
             .toInt(),
     )
@@ -51,23 +64,31 @@ intellijPlatform {
 
     pluginVerification {
         ides {
+            // the oldest supported IDEs
             create(
                 type = IntelliJPlatformType.IntellijIdeaCommunity,
-                version = verificationIdeaVersion,
+                version = platformIdeaVersion,
             )
+            create(
+                type = IntelliJPlatformType.AndroidStudio,
+                version = oldestAndroidStudioVersion,
+            )
+            // and the newest ones available at build time
+            latest(latestReleaseOf(IntelliJPlatformType.IntellijIdeaCommunity))
+            latest(latestReleaseOf(IntelliJPlatformType.AndroidStudio))
         }
     }
 }
 
 tasks {
     withType<JavaCompile> {
-        sourceCompatibility = JvmTarget.JVM_11.target
-        targetCompatibility = JvmTarget.JVM_11.target
+        sourceCompatibility = pluginJvmTarget.target
+        targetCompatibility = pluginJvmTarget.target
     }
 
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(pluginJvmTarget)
         }
     }
 
@@ -84,7 +105,7 @@ dependencies {
     testImplementation(libs.junit.legacy) // tests fails without this dependency
 
     intellijPlatform {
-        intellijIdeaCommunity(version = verificationIdeaVersion)
+        intellijIdeaCommunity(version = platformIdeaVersion)
         pluginVerifier()
         testFramework(TestFrameworkType.JUnit5)
     }
